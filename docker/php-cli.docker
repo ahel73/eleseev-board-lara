@@ -1,0 +1,10 @@
+# Используем официальный образ PHP 7.3-FPM
+FROM php:7.3-cli
+
+# Устанавливаем MariaDB клиент
+RUN apt-get update && apt-get install -y mariadb-client
+
+# Устанавливаем PDO расширение для MySQL
+RUN docker-php-ext-install pdo pdo_mysql
+
+WORKDIR /var/www
